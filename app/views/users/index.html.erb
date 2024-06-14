@@ -19,9 +19,6 @@
   <div id="users" class="min-w-full">
     <% @users.each do |user| %>
       <%= render partial: 'users/user_card', locals: { user: user } %>
-      <p>
-        <%= link_to "Show this user", user, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
     <% end %>
   </div>
 </div>
