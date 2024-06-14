@@ -1,4 +1,20 @@
 class User < ApplicationRecord
+  def image_url
+    self.class.get("https://picsum.photos/id/#{self.id}/info")['download_url']
+  end
+
+  def album_titles
+    self.class.fetch 'https://jsonplaceholder.typicode.com/albums', 'userId', self.id, 'title'
+  end
+
+  def album_photo_urls
+    self.class.fetch 'https://jsonplaceholder.typicode.com/photos', 'albumId', self.id, 'url'
+  end
+
+  def album_thumbnail_urls
+    self.class.fetch 'https://jsonplaceholder.typicode.com/photos', 'albumId', self.id, 'thumbnailUrl'
+  end
+
   # Address virtual attributes
   def street
     address['street']
@@ -56,6 +72,20 @@ class User < ApplicationRecord
     self.address['geo']['lng'] = value
   end
 
+  def full_address
+    "#{street}, #{suite}, #{zipcode} #{city}"
+  end
+
+  def address=(street, suite, city, zipcode, lat, lng)
+    street= street
+    suite= suite
+    city= city
+    zipcode= zipcode
+    lat= lat
+    lng= lng
+    full_address
+  end
+
   # Company virtual attributes
   def company_name
     company['name']
@@ -82,5 +112,26 @@ class User < ApplicationRecord
   def bs=(value)
     self.company ||= {}
     self.company['bs'] = value
+  end
+
+  private
+  def self.get(url)
+    uri = URI.parse url
+    request = Net::HTTP::Get.new uri.to_s
+    response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http|
+      http.request request
+    }
+    JSON.parse response.body
+  end
+
+  def self.fetch(target_url, lookup_name, lookup_id, resource_name)
+    resources = self.class.get(target_url)
+
+    desireds = []
+    resources.each do |resource|
+      next unless resource[lookup_name] == lookup_id
+      desireds << resource[resource_name]
+    end
+    desireds
   end
 end
