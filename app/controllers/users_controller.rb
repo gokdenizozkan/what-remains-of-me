@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     if params[:search]&.present?
       query = "%#{params[:search]}%"
-      @users = User.where('username LIKE ?', query).order(:id)
+      @users = User.where('username ILIKE ?', query).order(:id)
     else
       @users = User.all.order(:id)
     end
