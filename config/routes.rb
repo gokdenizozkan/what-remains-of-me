@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   get '/users', to: 'users#index', as: :users
-  get '/users/:id', to: 'users#show', as: :user
+  get '/users/:id/edit', to: 'users#edit', as: :edit_user
   put '/users/:id', to: 'users#update'
   patch '/users/:id', to: 'users#update'
 
