@@ -10,6 +10,13 @@
     <%= link_to "New user", new_user_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
+  <div id="search" class="flex justify-between items-center">
+    <%= form_with url: users_path, method: :get do |form| %>
+      <%= form.text_field :search, class: "py-3 px-4 rounded border ring-0 focus:ring-4 focus:ring-orange-100 focus:shadow-none focus:border-orange-500 focus:outline-none" %>
+      <%= form.submit 'Search', class: "px-4 py-3 font-medium bg-orange-300 text-neutal-900 rounded flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-orange-100" %>
+    <% end %>
+  </div>
+
   <div id="users" class="min-w-full">
     <% @users.each do |user| %>
       <%= render user %>
