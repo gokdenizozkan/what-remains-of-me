@@ -1,0 +1,15 @@
+<div id="<%= dom_id user %>">
+  <p class="my-5">
+    <img src="<%= fetch_image_url_of_user(user.id) %>">
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= user.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Username:</strong>
+    <%= user.username %>
+  </p>
+</div>
