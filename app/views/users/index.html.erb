@@ -29,6 +29,7 @@
     <%= render partial: 'users/search' %>
 
     <div id="users" class="flex flex-col flex-wrap overflow-hidden">
+      <%= "No user found." if @users.empty? %>
       <% @users.each do |user| %>
         <%= render partial: 'users/user_card', locals: { user: user } %>
       <% end %>
