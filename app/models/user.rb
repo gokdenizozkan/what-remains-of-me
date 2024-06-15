@@ -3,6 +3,25 @@ class User < ApplicationRecord
     self.class.get("https://picsum.photos/id/#{self.id}/info")['download_url']
   end
 
+  def albums
+    albums = []
+    album_ids = []
+    self.class.get('https://jsonplaceholder.typicode.com/albums').each do |album|
+      next unless album['userId'] == self.id
+      album_ids << album['id']
+      albums << {id: album['id'], title: album['title'], photos: []}
+    end
+
+    self.class.get('https://jsonplaceholder.typicode.com/photos').each do |photo|
+      index = album_ids.find_index photo['albumId']
+      next if index.nil?
+      p = {url: photo['url'], thumbnail_url: photo['thumbnailUrl'], title: photo['title']}
+      albums[index][:photos] << p
+    end
+    puts albums
+    albums
+  end
+
   def album_titles
     self.class.fetch 'https://jsonplaceholder.typicode.com/albums', 'userId', self.id, 'title'
   end
@@ -125,7 +144,7 @@ class User < ApplicationRecord
   end
 
   def self.fetch(target_url, lookup_name, lookup_id, resource_name)
-    resources = self.class.get(target_url)
+    resources = get(target_url)
 
     desireds = []
     resources.each do |resource|

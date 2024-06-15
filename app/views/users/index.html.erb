@@ -3,18 +3,25 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <% if true %>
-    <div class="flex flex-col">
+  <% if @user %>
+    <div class="flex flex-row justify-between overflow-hidden flex-nowrap">
       <%= render partial: 'users/user_profile_card', locals: { user: @user } %>
-      <div id="albums">
-        
+      <div id="albums" class="flex flex-col">
+        <% @user.albums.each do |album| %>
+          <%= render partial: 'users/album_card', locals: { album: album } %>
+        <% end %>
       </div>
     </div>
-    <div class="flex justify-between items-center">
-      <h1 class="font-bold text-4xl"><%= @user.name %></h1>
-    </div>
+
+    <script type="text/javascript">
+      function toggleModal(modalID){
+        document.getElementById(modalID).classList.toggle("hidden");
+        document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+        document.getElementById(modalID).classList.toggle("flex");
+        document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+      }
+    </script>
   <% else %>
-    <h1>Users</h1>
     <div class="flex justify-between items-center">
       <h1 class="font-bold text-4xl">Users</h1>
     </div>
