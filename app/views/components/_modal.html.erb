@@ -8,9 +8,13 @@
     <section class="modal-card-body">
       <div class="modal-content">
         <p class="image is-4by3">
-          <img src="<%= album[:photos][0][:url] %>" alt="">
+          <img src="<%= album[:photos][0][:url] %>" alt="image">
         </p>
       </div>
+
+      <p>
+        Image url: <%= album[:photos][0][:url] %>
+      </p>
     </section>
     <footer class="modal-card-foot">
       <div class="buttons">
