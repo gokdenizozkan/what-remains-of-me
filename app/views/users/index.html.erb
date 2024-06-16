@@ -7,15 +7,23 @@
     <section class="hero">
       <div class="hero-body">
         <p class="title"><%= @user.name %></p>
-        <p class="subtitle">Hero subtitle</p>
+        <p class="subtitle">"What remains of me..."</p>
       </div>
     </section>
-    <div class="">
-      <%= render partial: 'users/user_profile_card', locals: { user: @user } %>
-      <div id="albums" class="flex flex-col">
-        <% @user.albums.each do |album| %>
-          <%= render partial: 'users/album_card', locals: { album: album } %>
-        <% end %>
+
+    <div class="columns">
+      <div class="column is-one-quarter">
+        <%= render partial: 'users/user_card', locals: { user: @user } %>
+      </div>
+
+      <div class="column is-three-quarters">
+        <div class="columns is-multiline">
+          <% @user.albums.each do |album| %>
+            <div class="column is-full">
+              <%= render partial: 'components/horizontal_card', locals: { image_url: album[:photos][0][:thumbnail_url], title: album[:title] } %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
 
