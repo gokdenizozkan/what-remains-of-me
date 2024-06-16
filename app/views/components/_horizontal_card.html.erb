@@ -4,13 +4,17 @@
       <div class="media-left">
         <figure class="image is-64x64">
           <img
-            src="<%= image_url %>"
+            src="<%= album[:photos][0][:thumbnail_url] %>"
             alt="image"
           />
         </figure>
       </div>
       <div class="media-content">
-        <p class="title is-4"><%= title %></p>
+        <p class="title is-4"><%= album[:title] %></p>
+        <%= render partial: 'components/modal', locals: { album: album } %>
+        <button class="js-modal-trigger" data-target="album-modal-<%= album[:id] %>">
+          See
+        </button>
       </div>
     </div>
   </div>
