@@ -9,11 +9,25 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="container">
+    <%= render partial: 'layouts/navbar' %>
+
+    <main>
       <%= yield %>
     </main>
   </body>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>What Remains of Me</strong> by <a href="#">Gökdeniz Özkan</a>.
+        All rights are reserved.
+      </p>
+    </div>
+  </footer>
 </html>

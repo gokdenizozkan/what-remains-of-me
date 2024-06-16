@@ -4,7 +4,13 @@
   <% end %>
 
   <% if @user %>
-    <div class="flex flex-row justify-between overflow-hidden flex-nowrap">
+    <section class="hero">
+      <div class="hero-body">
+        <p class="title"><%= @user.name %></p>
+        <p class="subtitle">Hero subtitle</p>
+      </div>
+    </section>
+    <div class="">
       <%= render partial: 'users/user_profile_card', locals: { user: @user } %>
       <div id="albums" class="flex flex-col">
         <% @user.albums.each do |album| %>
@@ -22,17 +28,18 @@
       }
     </script>
   <% else %>
-    <div class="flex justify-between items-center">
-      <h1 class="font-bold text-4xl">Users</h1>
-    </div>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <p class="title">Users</p>
+        <p class="subtitle">Select a user and see what they have left behind.</p>
+      </div>
+    </section>
 
-    <%= render partial: 'users/search' %>
+    <%= render partial: 'components/search_bar' %>
 
-    <div id="users" class="flex flex-col flex-wrap overflow-hidden">
+    <div id="users" class="container">
       <%= "No user found." if @users.empty? %>
-      <% @users.each do |user| %>
-        <%= render partial: 'users/user_card', locals: { user: user } %>
-      <% end %>
+      <%= render partial: 'components/cards', locals: { users: @users } %>
     </div>
   <% end %>
 </div>
