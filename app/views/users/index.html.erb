@@ -4,13 +4,6 @@
   <% end %>
 
   <% if @user %>
-    <section class="hero">
-      <div class="hero-body">
-        <p class="title"><%= @user.name %></p>
-        <p class="subtitle">"What remains of me..."</p>
-      </div>
-    </section>
-
     <div class="columns">
       <div class="column is-one-quarter">
         <%= render partial: 'users/user_card', locals: { user: @user } %>
@@ -19,27 +12,14 @@
       <div class="column is-three-quarters">
         <div class="columns is-multiline">
           <% @user.albums.each do |album| %>
-            <div class="column is-full">
+            <div class="column is-half ">
               <%= render partial: 'components/horizontal_card', locals: { album: album } %>
             </div>
           <% end %>
         </div>
       </div>
     </div>
-
-    <script type="text/javascript">
-      
-    </script>
   <% else %>
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <p class="title">Users</p>
-        <p class="subtitle">Select a user and see what they have left behind.</p>
-      </div>
-    </section>
-
-    <%= render partial: 'components/search_bar' %>
-
     <div id="users" class="container">
       <%= "No user found." if @users.empty? %>
       <%= render partial: 'components/cards', locals: { users: @users } %>

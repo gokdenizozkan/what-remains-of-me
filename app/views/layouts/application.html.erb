@@ -14,12 +14,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
   </head>
 
-  <body class="container">
-    <%= render partial: 'layouts/navbar' %>
+  <body>
+    <section class="hero is-info is-fullheight">
+      <!-- Hero head: will stick at the top -->
+      <div class="hero-head">
+        <%= render partial: 'layouts/navbar' %>
+      </div>
 
-    <main>
-      <%= yield %>
-    </main>
+      <!-- Hero content: will be in the middle -->
+      <div class="hero-body">
+        <div class="container">
+          <main>
+            <%= yield %>
+          </main>
+        </div>
+      </div>
+
+      <!-- Hero footer: will stick at the bottom -->
+      <div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+          <div class="container">
+            <ul class="columns">
+              <li class="is-active column is-one-quarter"><a><%= @user ? @user.username.upcase : 'USERS' %></a></li>
+              <li class="column is-three-quarters"><%= render partial: 'components/search_bar' %></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </section>
   </body>
 
   <footer class="footer">

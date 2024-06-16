@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+.navbar .navbar-brand {
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+.navbar-brand a {
+  color: black;
+}
+
+.navbar .navbar-brand > .navbar-item,
+.navbar .navbar-brand .navbar-link {
+  display: inline-block;
+}
+
+.hero-body, .hero-body .container {
+  align-items: flex-start !important;
+}

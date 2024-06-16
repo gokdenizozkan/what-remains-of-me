@@ -1,7 +1,7 @@
 <section class="section">
   <div class="columns is-multiline">
     <% users.each do |user| %>
-      <div class="column is-4 is-one-quarter">
+      <div class="column narrow is-one-fifth">
         <%= render partial: 'components/card', locals: { user: user } %>
       </div>
     <% end %>
