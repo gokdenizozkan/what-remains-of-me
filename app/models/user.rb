@@ -84,16 +84,6 @@ class User < ApplicationRecord
     "#{street}, #{suite}, #{zipcode} #{city}"
   end
 
-  def address=(street, suite, city, zipcode, lat, lng)
-    street= street
-    suite= suite
-    city= city
-    zipcode= zipcode
-    lat= lat
-    lng= lng
-    full_address
-  end
-
   # Company virtual attributes
   def company_name
     company['name']
@@ -130,17 +120,6 @@ class User < ApplicationRecord
       http.request request
     }
     JSON.parse response.body
-  end
-
-  def self.fetch(target_url, lookup_name, lookup_id, resource_name)
-    resources = get(target_url)
-
-    desireds = []
-    resources.each do |resource|
-      next unless resource[lookup_name] == lookup_id
-      desireds << resource[resource_name]
-    end
-    desireds
   end
 
   def username_exists?
