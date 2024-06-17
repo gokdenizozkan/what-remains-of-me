@@ -21,6 +21,9 @@
     </div>
   <% else %>
     <div id="users" class="container">
+      <section class="section">
+        <h1 class="title is-1 has-text-centered is-family-primary"><%= @query && @query.present? ? "Results for #{@query}" : 'Users' %></h1>
+      </section>
       <%= "No user found." if @users.empty? %>
       <%= render partial: 'components/cards', locals: { users: @users } %>
     </div>

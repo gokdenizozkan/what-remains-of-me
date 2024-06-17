@@ -13,21 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
 .navbar .navbar-brand {
   text-align: center;
   display: block;
-  width: 100%;
+  width: 75%;
 }
 
-.navbar-brand a {
-  color: black;
-}
-
-.navbar .navbar-brand > .navbar-item,
-.navbar .navbar-brand .navbar-link {
-  display: inline-block;
-}
-
-.hero-body, .hero-body .container {
-  align-items: flex-start !important;
+.navbar .container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-content: center !important;
 }

@@ -9,7 +9,8 @@ class UsersController < ApplicationController
       @user = User.find params[:user_id]
     else
       if params[:search]
-        query = "%#{params[:search]}%"
+        @query = params[:search]
+        query = "%#{@query}%"
         @users = User.where('username ILIKE ?', query).order(:id)
       else
         @users = User.all.order(:id)

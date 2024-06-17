@@ -1,9 +1,11 @@
-<header class="navbar is-spaced has-shadow">
+<nav class="navbar section" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item is-centered has-text-weight-bold is-family-monospace is-size-2" href="<%= root_path %>">
-        What Remains of Me
-      </a>
+      <%= link_to root_path do %>
+        <figure class="image is-3by1">
+          <%= image_tag 'logo-what-remains-of-me.svg' %>    
+        </figure>
+      <% end %>
     </div>
   </div>
-</header>
+</nav>
