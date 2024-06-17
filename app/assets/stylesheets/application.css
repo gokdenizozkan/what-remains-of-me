@@ -15,8 +15,21 @@
  */
 
 nav {
-  height: 240px;
-  background: url('logo-what-remains-of-me.svg') repeat-x;
+  height: 290px;
+  line-height: 290px;
+  background: url('filmstrip.svg') repeat-x;
+  text-align: center;
+  align-items: center;
+}
+
+nav a {
+  color: black;
+}
+
+@media screen and (min-width: 1000px) {
+  nav .is-size-1 {
+    font-size: 4.25rem !important;
+  }
 }
 
 /* slider/carousel */
