@@ -1,6 +1,9 @@
-<%= form_with url: users_path, method: :get, html: {class: 'control has-icons-left'}, data: { turbo_frame: 'users', turbo_action: 'advance' } do |form| %>
-  <%= form.text_field :search, type: 'search', placeholder: 'Search', class: 'input is-medium is-link is-rounded' %>
+<%= form_with url: users_path, method: :get, html: { id: 'search-bar-form', class: 'control has-icons-left has-icons-right' }, data: { controller: 'search-form', turbo_frame: 'users', turbo_action: 'advance' } do |form| %>
+  <%= form.text_field :search, type: 'search', placeholder: 'Search', data: { action: 'input->search-form#search' }, class: 'input is-medium is-link is-rounded', id: 'search-bar' %>
   <span class='icon is-left'>
     <i class='fas fa-search'></i>
+  </span>
+  <span id="loading-indicator" class='icon is-right is-hidden'>
+    <i class='fas fa-spinner fa-spin'></i>
   </span>
 <% end %>
