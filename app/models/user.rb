@@ -148,7 +148,7 @@ class User < ApplicationRecord
   end
 
   def prevent_update_if_username_exists
-    if username_exists?
+    if username_changed? && username_exists?
       errors.add :username, 'This username is already being used. Choose something else.'
       throw :abort
     end
