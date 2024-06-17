@@ -1,4 +1,4 @@
-<%= form_with url: users_path, method: :get, html: {class: 'control has-icons-left'} do |form| %>
+<%= form_with url: users_path, method: :get, html: {class: 'control has-icons-left'}, data: { turbo_frame: 'users', turbo_action: 'advance' } do |form| %>
   <%= form.text_field :search, type: 'search', placeholder: 'Search', class: 'input is-medium is-link is-rounded' %>
   <span class='icon is-left'>
     <i class='fas fa-search'></i>

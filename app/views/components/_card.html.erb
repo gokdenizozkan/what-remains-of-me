@@ -10,7 +10,7 @@
         <div class="media-content">
           <p class="title is-4 no-padding"><%= user.name %></p>
           <p class="subtitle is-6"><%= user.username %></p>
-          <%= link_to "Edit user", edit_user_path(user), class: 'title is-6' %>
+          <%= link_to "Edit user", edit_user_path(user), data: { turbo: false }, class: 'title is-6' %>
         </div>
       </div>
     </div>

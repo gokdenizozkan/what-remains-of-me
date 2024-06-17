@@ -20,7 +20,7 @@
       </div>
     </div>
   <% else %>
-    <div id="users" class="container">
+    <turbo-frame id="users" class="container">
       <section class="section">
         <h1 class="title is-1 has-text-centered is-family-primary"><%= @query && @query.present? ? "Results for #{@query}" : 'Users' %></h1>
       </section>
