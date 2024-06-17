@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  before_update :prevent_update_if_username_exists
+
   def image_url
     self.class.get("https://picsum.photos/id/#{self.id}/info")['download_url']
   end
@@ -152,5 +154,16 @@ class User < ApplicationRecord
       desireds << resource[resource_name]
     end
     desireds
+  end
+
+  def username_exists?
+    User.where(username: self.username).first.present?
+  end
+
+  def prevent_update_if_username_exists
+    if username_exists?
+      errors.add :username, 'This username is already being used. Choose something else.'
+      throw :abort
+    end
   end
 end
