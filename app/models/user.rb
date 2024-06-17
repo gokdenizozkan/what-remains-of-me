@@ -20,20 +20,7 @@ class User < ApplicationRecord
       p = {url: photo['url'], thumbnail_url: photo['thumbnailUrl'], title: photo['title']}
       albums[index][:photos] << p
     end
-    puts albums
     albums
-  end
-
-  def album_titles
-    self.class.fetch 'https://jsonplaceholder.typicode.com/albums', 'userId', self.id, 'title'
-  end
-
-  def album_photo_urls
-    self.class.fetch 'https://jsonplaceholder.typicode.com/photos', 'albumId', self.id, 'url'
-  end
-
-  def album_thumbnail_urls
-    self.class.fetch 'https://jsonplaceholder.typicode.com/photos', 'albumId', self.id, 'thumbnailUrl'
   end
 
   # Address virtual attributes

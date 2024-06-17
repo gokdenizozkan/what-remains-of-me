@@ -14,15 +14,7 @@
  *= require_self
  */
 
-.navbar .navbar-brand {
-  text-align: center;
-  display: block;
-  width: 75%;
-}
-
-.navbar .container {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: center !important;
-  align-content: center !important;
+nav {
+  height: 240px;
+  background: url('logo-what-remains-of-me.svg') repeat-x;
 }
