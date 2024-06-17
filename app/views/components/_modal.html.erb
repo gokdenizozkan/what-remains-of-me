@@ -7,14 +7,18 @@
     </header>
     <section class="modal-card-body">
       <div class="modal-content">
-        <p class="image is-4by3">
-          <img src="<%= album[:photos][0][:url] %>" alt="image">
-        </p>
+        <div class="slider">
+          <div class="slides">
+            <% album[:photos].each do |photo| %>
+              <div class="slides-image-container">">
+                <img src="<%= photo[:url] %>" class="image is-4by3"><br>
+                <div class="slides-image-title is-size-7"><%= photo[:title] %></div>
+                <div class="slides-image-url is-size-7"><%= photo[:url] %></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-
-      <p>
-        Image url: <%= album[:photos][0][:url] %>
-      </p>
     </section>
     <footer class="modal-card-foot">
       <div class="buttons">
