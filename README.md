@@ -10,6 +10,8 @@ If you are short on time, check the 4 minutes long Loom video: [https://loom.com
 
 ## Quickstart
 
+This project uses Ruby on Rails, and PostgreSQL. Make sure you have PostgresSQL installed on your machine.
+
 1. Clone the repo.
 2. If first time running, run `bundle install; rails db:create db:migrate;` at project root.
 3. To populate database, run `rake wrom_app:import_users` at project root.
