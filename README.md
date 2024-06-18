@@ -17,9 +17,16 @@ If you are short on time, check the 4 minutes long Loom video: [https://loom.com
 
 ## See what I have done throughout the bootcamp
 
-### Medium article
+### Medium articles
 
-I wrote a Medium article on Git and how it works. Find it here: https://blog.gokdenizozkan.com/understand-git-from-core-concepts-to-advanced-commands-c2237771d488?source=friends_link&sk=3743976143260371b65e3ebf97587a81
+I wrote two Medium articles:
+
+- On Git and How It Works: [blog.gokdenizozkan.com/understand-git](https://blog.gokdenizozkan.com/understand-git-from-core-concepts-to-advanced-commands-c2237771d488?source=friends_link&sk=3743976143260371b65e3ebf97587a81)
+- On How I Deployed my Rails Project on Render: [blog.gokdenizozkan.com/how-i-deployed-my-rails-project-on-render](https://blog.gokdenizozkan.com/57fc37fdc386?source=friends_link&sk=9803cd153ea413539bc9850dfa0a35bc)
+
+<a href="https://blog.gokdenizozkan.com/understand-git-from-core-concepts-to-advanced-commands-c2237771d488?source=friends_link&sk=3743976143260371b65e3ebf97587a81"><img alt="medium article on git" src=".github/medium-article-git.webp" width="300px"></a>
+<a href="https://blog.gokdenizozkan.com/57fc37fdc386?source=friends_link&sk=9803cd153ea413539bc9850dfa0a35bc"><img alt="medium article on deployment" src=".github/medium-article-deploy.webp" width="300px"></a>
+
 
 ### Community Blog
 
@@ -34,7 +41,7 @@ Also see how I done and presented them:
 
 3rd Homework:  
   
-<a href="https://youtu.be/-Qccqw0K3Zw"><img alt="kısa tanıtım 3. ödev ister youtube thumbnail" src=".github/odev-tanitimi-3-thumbnail.gif" width="500px"></a>  
+<a href="https://youtu.be/-Qccqw0K3Zw"><img alt="kısa tanıtım 3. ödev ister youtube thumbnail" src=".github/odev-tanitimi-3-thumbnail.gif" width="600px"></a>  
   
 2nd Homework:  
 
